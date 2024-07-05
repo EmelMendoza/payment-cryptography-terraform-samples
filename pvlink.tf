@@ -1,5 +1,4 @@
-data "aws_region" "current" {}
-
+## SG For Endpoints
 resource "aws_security_group" "this" {
   name_prefix = "payment-crypto-endpoint-"
   vpc_id      = var.vpc_id
@@ -10,6 +9,13 @@ resource "aws_security_group" "this" {
     protocol    = "tcp"
     cidr_blocks = var.vpc_cidr_block
 
+  }
+
+  ingress {
+    from_port       = 443
+    to_port         = 443
+    protocol        = "tcp"
+    security_groups = ["${aws_security_group.thissg.id}"] # SG For instance
   }
 
   egress {
