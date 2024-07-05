@@ -22,6 +22,10 @@ In this Sample, We will cover Acquirer use case for DBK/AWK as well as Issuers u
 - Access to your AWS Environment and specific resources
 - Terraform v.1.4.5 or later installed
 
+## Architecture
+
+![](./architecture.png)
+
 ## Terraform Resources
 
 ## Providers
